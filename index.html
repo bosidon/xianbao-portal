@@ -118,7 +118,7 @@
             border: 1px solid rgba(34, 211, 238, 0.15);
             backdrop-filter: blur(4px);
         }
-        .hero-badge i { font-size: 0.8rem; }
+        .hero-badge i { font-size: 0.7rem; }
 
         /* ===== 社交入口 ===== */
         .hero-social {
@@ -128,6 +128,7 @@
             margin-top: 1.8rem;
             flex-wrap: wrap;
         }
+        .hero-links { display: flex; gap: 0.5rem; flex-wrap: nowrap; }
         .hero-social .social-link {
             display: inline-flex;
             align-items: center;
@@ -135,8 +136,11 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             text-decoration: none;
-            padding: 0.4rem 0.8rem;
+            padding: 0 0.6rem;
+            font-size: 0.75rem;
             border-radius: 20px;
+            height: 16px;
+            line-height: 16px;
             border: 1px solid var(--border-color);
             transition: var(--transition);
             cursor: pointer;
@@ -339,6 +343,20 @@
         .tool-card:nth-child(3) { animation-delay: 0.3s; }
         .tool-card:nth-child(4) { animation-delay: 0.4s; }
 
+        /* ========== 心声社区 ========== */
+        .vc-calc-card{max-width:1000px;margin:1.6rem auto 0;padding:0 1rem}
+        .sec-title{font-size:1.4rem;font-weight:700;text-align:center;color:#f0f4ff;margin-bottom:.3rem;font-family:'Songti SC','Noto Serif SC',serif}
+        .sub{text-align:center;font-size:.88rem;color:rgba(240,244,255,0.5);margin-bottom:.8rem}
+        .learn-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .learn-c{display:flex;align-items:center;gap:.8rem;background:rgba(34,211,238,0.02);border:1px solid rgba(139,122,74,0.12);border-left:3px solid #22d3ee;border-radius:12px;padding:.8rem;text-decoration:none;color:inherit;transition:all .2s}
+        .learn-c:hover{background:rgba(34,211,238,0.05);transform:translateY(-2px)}
+        .learn-c .lci{font-size:1rem;flex-shrink:0;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+        .learn-c .lcb{flex:1;min-width:0}
+        .learn-c .lcb .lc-name{font-size:12px;color:#94a3b8;margin-bottom:2px}
+        .learn-c .lcb .lc-text{font-size:13px;color:#cbd5e1;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .learn-c .lcb .lc-foot{font-size:11px;color:#64748b;margin-top:4px}
+        @media(max-width:480px){.learn-g{grid-template-columns:1fr}}
+
         /* ========== 页脚 ========== */
         .footer {
             border-top: 1px solid var(--border-color);
@@ -366,8 +384,9 @@
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.8rem; }
             .container { padding: 0 16px; }
+            .hero-badge { flex: 0 0 100%; justify-content: center; }
             .hero-social { gap: 0.6rem; }
-            .hero-social .social-link { font-size: 0.82rem; padding: 0.3rem 0.6rem; }
+            .hero-social .social-link { height: 16px; line-height: 16px; padding: 0 0.4rem; font-size: 0.68rem; white-space: nowrap; }
         }
     </style>
 <link rel=icon type=image/x-icon href=/assets/xianbao/favicon.ico>
@@ -385,19 +404,21 @@
 <!-- Hero -->
 <section class="hero">
     <div class="container">
-        <div class="hero-badge"><i class="fas fa-shield-alt"></i> 科学 · 精准 · 保护隐私</div>
         <h1>探索内心 · 发现天赋 · 理解世界</h1>
         <p class="subtitle">一套完整的认知成长工具箱，用科学、灵性、象征系统，陪伴你的自我探索之路</p>
         <div class="hero-social">
+            <div class="hero-badge" style="display:inline-flex;padding:0 0.6rem;font-size:0.75rem;height:16px;line-height:16px;border-radius:20px"><i class="fas fa-shield-alt"></i> 科学 · 精准 · 保护隐私</div>
+            <div class="hero-links">
             <a class="social-link wechat" onclick="toggleWechat()">
                 <i class="fab fa-weixin"></i> 公众号
             </a>
             <a href="https://www.xiaohongshu.com/user/profile/60b9c83300000000010060b8" target="_blank" class="social-link" title="小红书">
                 <i class="fas fa-book-open"></i> 小红书
             </a>
-<a class="social-link" onclick="toggleVideo()" title="视频号">
+            <a class="social-link" onclick="toggleVideo()" title="视频号">
                 <i class="fas fa-video"></i> 视频号
             </a>
+            </div>
         </div>
     </div>
 </section>
@@ -457,7 +478,14 @@
     </div>
 </section>
 
-<!-- 页脚 -->
+<!-- 心声社区 -->
+<div class="vc-calc-card" style="margin-top:2rem">
+    <h2 class="sec-title">💬 心声社区</h2>
+    <p class="sub">来自大家的分享与交流 · <a href="/message" style="color:#22d3ee;text-decoration:none">我要分享 <i class="fas fa-arrow-right"></i></a></p>
+    <div id="voiceGrid" class="learn-g">
+        <div style="grid-column:1/-1;text-align:center;padding:40px 0;color:#64748b">加载中...</div>
+    </div>
+</div><!-- 页脚 -->
 <footer class="footer">
     <div class="container">
         <p>&copy; 2026 仙宝心灵成长 · 让每个人更好地认识自己</p>
@@ -477,6 +505,46 @@ function toggleVideo() {
 }
 </script>
 
+
+<script>
+async function loadVoice() {
+    try {
+        var r = await fetch('/message/api/messages?category=reflection&sort=new&limit=4');
+        var d = await r.json();
+        var grid = document.getElementById('voiceGrid');
+        if (!d.success || !d.data.messages || d.data.messages.length === 0) {
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:#64748b">暂无心声分享</div>';
+            return;
+        }
+        var colors = ['#22d3ee','#a855f7','#f5a623','#34d399'];
+        grid.innerHTML = d.data.messages.map(function(m, i) {
+            var name = m.nickname || m.username || '匿名';
+            var text = (m.content || '').substring(0, 80);
+            var time = ta3(m.created_at);
+            return '<a href="/message#d:' + m.id + '" class="learn-c" style="border-left-color:' + colors[i % 4] + '">' +
+                '<div class="lci">' + name.charAt(0).toUpperCase() + '</div>' +
+                '<div class="lcb">' +
+                '<div class="lc-name">' + name + ' · ' + time + '</div>' +
+                '<div class="lc-text">' + text.replace(/</g,'&lt;') + '</div>' +
+                '<div class="lc-foot"><i class="far fa-comment"></i> ' + (m.reply_count||0) + '</div>' +
+                '</div></a>';
+        }).join('');
+    } catch(e) {
+        document.getElementById('voiceGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:#64748b">加载失败</div>';
+    }
+}
+function ta3(t) {
+    if (!t) return '';
+    var d = new Date(t.replace(' ','T'));
+    var diff = Math.floor((new Date() - d) / 1000);
+    if (diff < 60) return '刚刚';
+    if (diff < 3600) return Math.floor(diff/60) + '分钟前';
+    if (diff < 86400) return Math.floor(diff/3600) + '小时前';
+    if (diff < 2592000) return Math.floor(diff/86400) + '天前';
+    return d.toLocaleDateString('zh-CN');
+}
+loadVoice();
+</script>
 <script src="/assets/xianbao/auth-widget.js"></script>
 <script src="/assets/xianbao/xianbao-topbar.js?v=3"></script>
 
