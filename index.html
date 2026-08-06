@@ -396,6 +396,26 @@
 <link rel=apple-touch-icon sizes=180x180 href=/assets/xianbao/apple-touch-icon.png>
 
 <link rel="stylesheet" href="/assets/xianbao/xianbao-topbar.css?v=3">
+<script>
+/* 域名配置（换域名只改这里） */
+var XB = {
+  main: 'https://xianbao.online',
+  ceping: 'https://ceping.xianbao.online',
+  read: 'https://read.xianbao.online',
+  maya: 'https://maya.xianbao.online',
+  tarot: 'https://tarot.xianbao.online'
+};
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.tool-card').forEach(function(card){
+    var key = card.getAttribute('data-site');
+    if (key && XB[key]) {
+      card.setAttribute('href', XB[key]);
+      var dom = card.querySelector('.card-domain');
+      if (dom) dom.textContent = XB[key].replace(/^https?:\/\//, '');
+    }
+  });
+});
+</script>
 </head>
 <body>
 
@@ -439,38 +459,38 @@
 <section class="tools-section">
     <div class="container">
         <div class="tools-grid">
-                        <a href="https://ceping.xianbao.online" target="_blank" class="tool-card" data-accent="psych" style="background-image:url(/images/card-psych.jpg)">
+                        <a href="#" data-site="ceping" target="_blank" class="tool-card" data-accent="psych" style="background-image:url(/images/card-psych.jpg)">
                 <div class="tool-card-body">
                     <h3>🧠 心理测评</h3>
                 <p>科学化的心理评估工具，涵盖性格、情绪、人际关系等多维度，帮助你用数据了解自己。</p>
-                <span class="card-domain">ceping.xianbao.online</span>
+                <span class="card-domain"></span>
                 <span class="card-cta">开始探索 <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
-                        <a href="https://read.xianbao.online" target="_blank" class="tool-card" data-accent="read" style="background-image:url(/images/card-read.jpg)">
+                        <a href="#" data-site="read" target="_blank" class="tool-card" data-accent="read" style="background-image:url(/images/card-read.jpg)">
                 <div class="tool-card-body">
                     <h3>📖 灵修阅读站</h3>
                 <p>赛斯、欧林、与神对话、克里希那穆提……经典灵性著作的结构化阅读体验。</p>
-                <span class="card-domain">read.xianbao.online</span>
+                <span class="card-domain"></span>
                 <span class="card-cta">开始阅读 <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
-                        <a href="https://maya.xianbao.online" target="_blank" class="tool-card" data-accent="maya" style="background-image:url(/images/card-maya.jpg)">
+                        <a href="#" data-site="maya" target="_blank" class="tool-card" data-accent="maya" style="background-image:url(/images/card-maya.jpg)">
                 <div class="tool-card-body">
                     <h3>☀️ 玛雅天赋</h3>
                 <p>基于 DreamSpell 历法的天赋能量解读，了解你的 Kin 和生命波符。</p>
-                <span class="card-domain">maya.xianbao.online</span>
+                <span class="card-domain"></span>
                 <span class="card-cta">探索天赋 <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
-                        <a href="https://tarot.xianbao.online" target="_blank" class="tool-card" data-accent="tarot" style="background-image:url(/images/card-tarot.jpg)">
+                        <a href="#" data-site="tarot" target="_blank" class="tool-card" data-accent="tarot" style="background-image:url(/images/card-tarot.jpg)">
                 <div class="tool-card-body">
                     <h3>🔮 塔罗解读</h3>
                 <p>78张塔罗牌，智慧抽牌与手动选牌两种方式，每日一牌指引你的当下。</p>
-                <span class="card-domain">tarot.xianbao.online</span>
+                <span class="card-domain"></span>
                 <span class="card-cta">开始占卜 <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
