@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>升级VIP · 仙宝心灵成长</title>
+<link rel="stylesheet" href="/assets/xianbao/xianbao-topbar.css?v=3">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -137,8 +138,8 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 <body>
 
 <div id="xianbao-topbar" data-active="portal"></div>
-<script src="https://assets.xianbao.online/xianbao/xianbao-topbar.js"></script>
-<script src="https://assets.xianbao.online/xianbao/auth-widget.js"></script>
+<script src="https://xianbao.love/assets/xianbao/xianbao-topbar.js?v=20260829"></script>
+<script src="https://xianbao.love/assets/xianbao/auth-widget.js?v=20260829"></script>
 
 <div class="topbar-spacer"></div>
 
@@ -161,7 +162,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
       <li><span class="check">✓</span> 塔罗解读 无限次</li>
       <li><span class="check">✓</span> 玛雅天赋 无限次</li>
       <li><span class="check">✓</span> 心理测评 无限次</li>
-      <li><span class="check">✓</span> 灵修阅读 无限本书精读</li>
+      <li><span class="check">✓</span> 心灵阅读 无限本书精读</li>
       <li><span class="cross">—</span> 有效期 365 天</li>
     </ul>
     <button class="btn-buy secondary" onclick="startBuy('yearly')">选择年卡</button>
@@ -175,7 +176,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
       <li><span class="check">✓</span> 塔罗解读 无限次</li>
       <li><span class="check">✓</span> 玛雅天赋 无限次</li>
       <li><span class="check">✓</span> 心理测评 无限次</li>
-      <li><span class="check">✓</span> 灵修阅读 无限本书精读</li>
+      <li><span class="check">✓</span> 心灵阅读 无限本书精读</li>
       <li><span class="check">✓</span> 永久有效，永不过期</li>
     </ul>
     <button class="btn-buy primary" onclick="startBuy('lifetime')">选择不限时</button>
@@ -190,7 +191,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
     <tr><td>塔罗解读</td><td class="no">20 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>玛雅天赋</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>心理测评</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>灵修阅读</td><td class="no">3 本精读</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
+    <tr><td>心灵阅读</td><td class="no">3 本精读</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>有效期</td><td class="no">永久</td><td>365 天</td><td class="yes">永久</td></tr>
     <tr><td><strong>价格</strong></td><td class="no"><strong>免费</strong></td><td><strong style="color:#a78bfa">¥128</strong></td><td><strong style="color:#a78bfa">¥256</strong></td></tr>
   </table>
@@ -201,18 +202,19 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   <div class="modal" id="modalContent">
     <button class="close" onclick="closeModal()">✕</button>
     <div class="icon">💎</div>
-    <h2 id="modalTitle">选择支付方式</h2>
+    <h2 id="modalTitle">添加微信开通 VIP</h2>
     <p id="modalDesc">请选择套餐</p>
     <div class="price-tag" id="modalPrice" style="display:none"></div>
 
     <div class="qrcode">
-      <img id="qrImage" src="/qr-128.png?v=2" alt="扫码付款" style="width:100%;height:auto;border-radius:4px;">
+      <img id="qrImage" src="/images/wechat-qr.jpg" alt="添加客服微信" style="width:100%;height:auto;border-radius:4px;">
     </div>
 
     <p class="hint">
-      <strong>付款后</strong> 请添加客服微信<br>
-      发送付款截图和注册邮箱，人工开通 VIP<br><br>
-      微信: <strong style="color:#a78bfa">19122895147</strong> · QQ: <strong style="color:#a78bfa">10212643</strong>
+      <strong>添加微信</strong> 确认 VIP 档位后转账开通<br>
+      付款后请保留聊天记录作为凭证<br><br>
+      微信: <strong style="color:#a78bfa">19122895147</strong> · QQ: <strong style="color:#a78bfa">10212643</strong><br>
+      <small style="color:#94a3b8">虚拟阅读服务，开通后不支持退款</small>
     </p>
 
     <button class="btn-buy secondary" onclick="closeModal()" style="margin-top:16px;">我知道了</button>
@@ -224,7 +226,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 </footer>
 
 <script>
-var AUTH_API = 'https://auth.xianbao.online';
+var AUTH_API = ''; // 同域 API
 
 function fmtDate(d) {
   if (!d) return '';
@@ -264,12 +266,12 @@ function startBuy(type) {
 
   if (type === 'yearly') {
     title.textContent = '年卡会员';
-    document.getElementById('qrImage').src = '/qr-128.png?v=2';
+    document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
     desc.textContent = '有效期 365 天，无限使用所有功能';
     price.textContent = '¥128';
   } else {
     title.textContent = '不限时会员';
-    document.getElementById('qrImage').src = '/qr-256.png?v=2';
+    document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
     desc.textContent = '一次付费，永久使用，永不过期';
     price.textContent = '¥256';
   }
