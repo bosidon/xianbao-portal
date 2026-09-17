@@ -63,17 +63,10 @@ body {
 .btn-buy.secondary { background: transparent; color: #a78bfa; border: 1px solid #7c3aed44; }
 .btn-buy.secondary:hover { background: #7c3aed15; }
 
-/* Features table */
-.feature-compare { max-width: 700px; margin: 0 auto 40px; padding: 0 20px; }
-.feature-compare h2 { text-align: center; font-size: 22px; color: #e0e0e0; margin-bottom: 24px; }
-.feature-compare table { width: 100%; border-collapse: collapse; }
-.feature-compare th, .feature-compare td {
-  padding: 12px 16px; text-align: center; border-bottom: 1px solid #1a1a26; font-size: 14px;
-}
-.feature-compare th:first-child, .feature-compare td:first-child { text-align: left; color: #b0b0b0; }
-.feature-compare th { color: #888; font-weight: 600; font-size: 13px; }
-.feature-compare td.yes { color: #6ee7b7; }
-.feature-compare td.no { color: #555; }
+/* Free quota tip */
+.free-tip { max-width: 700px; margin: -10px auto 40px; padding: 0 20px; text-align: center; }
+.free-tip p { color: #777; font-size: 13px; line-height: 1.9; }
+.free-tip p.note { color: #555; font-size: 12px; margin-top: 4px; }
 
 /* Payment modal */
 .modal-overlay {
@@ -183,18 +176,10 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   </div>
 </section>
 
-<!-- Feature Comparison -->
-<section class="feature-compare">
-  <h2>权益对比</h2>
-  <table>
-    <tr><th></th><th>免费版</th><th>VIP 年卡</th><th>VIP 3 年卡</th></tr>
-    <tr><td>塔罗解读</td><td class="no">20 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>玛雅天赋</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>心理测评</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>心灵阅读</td><td class="no">3 本精读</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>有效期</td><td class="no">—</td><td>365 天</td><td class="yes">1095 天（3 年）</td></tr>
-    <tr><td><strong>价格</strong></td><td class="no"><strong>免费</strong></td><td><strong style="color:#a78bfa">¥128</strong></td><td><strong style="color:#a78bfa">¥256</strong></td></tr>
-  </table>
+<!-- 免费额度提示（原「权益对比」表已移除：与套餐卡片内容重复） -->
+<section class="free-tip">
+  <p>免费版额度：塔罗解读 20 次 · 玛雅天赋 3 次 · 心理测评 3 次 · 心灵阅读 3 本精读</p>
+  <p class="note">VIP 会员以上全部无限使用（权益相同，仅时长不同）</p>
 </section>
 
 <!-- Payment Modal -->
