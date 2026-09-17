@@ -63,10 +63,12 @@ body {
 .btn-buy.secondary { background: transparent; color: #a78bfa; border: 1px solid #7c3aed44; }
 .btn-buy.secondary:hover { background: #7c3aed15; }
 
-/* Free quota tip */
-.free-tip { max-width: 700px; margin: -10px auto 40px; padding: 0 20px; text-align: center; }
-.free-tip p { color: #777; font-size: 13px; line-height: 1.9; }
-.free-tip p.note { color: #555; font-size: 12px; margin-top: 4px; }
+/* 体验版卡片 */
+.card.free { border-color: #2a2a3a; background: #12121a; }
+.card.free .name { color: #9ca3af; }
+.card.free .price .num { color: #9ca3af; }
+.card.free .features li { color: #8b8b99; }
+.card.free .lim { color: #c4b5fd; font-weight: 600; }
 
 /* Payment modal */
 .modal-overlay {
@@ -147,6 +149,19 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 
 <!-- Pricing Cards -->
 <section class="pricing" id="pricingCards">
+  <div class="card free">
+    <div class="name">🌱 体验版</div>
+    <div class="desc">免费体验，了解核心功能</div>
+    <div class="price"><span class="currency">¥</span><span class="num">0</span><span class="unit">/永久</span></div>
+    <ul class="features">
+      <li><span class="check">✓</span> 塔罗解读 <b class="lim" id="limTarot">-</b> 次</li>
+      <li><span class="check">✓</span> 玛雅天赋 <b class="lim" id="limMaya">-</b> 次</li>
+      <li><span class="check">✓</span> 心理测评 <b class="lim" id="limPsych">-</b> 次</li>
+      <li><span class="check">✓</span> 心灵阅读 <b class="lim" id="limReading">-</b> 章</li>
+    </ul>
+    <button class="btn-buy secondary" onclick="location.href='/'">免费使用</button>
+  </div>
+
   <div class="card">
     <div class="name">🌸 年卡</div>
     <div class="desc">一年无限畅用，性价比之选</div>
@@ -176,11 +191,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   </div>
 </section>
 
-<!-- 免费额度提示（原「权益对比」表已移除：与套餐卡片内容重复） -->
-<section class="free-tip">
-  <p>免费版额度：塔罗解读 20 次 · 玛雅天赋 3 次 · 心理测评 3 次 · 心灵阅读 3 本精读</p>
-  <p class="note">VIP 会员以上全部无限使用（权益相同，仅时长不同）</p>
-</section>
+<!-- 免费额度已由「体验版」卡片展示（数据来自配置表 /api/usage/limits） -->
 
 <!-- Payment Modal -->
 <div class="modal-overlay" id="paymentModal">
@@ -242,6 +253,22 @@ function checkStatus() {
       container.innerHTML = '';
     });
 }
+
+// 免费额度从配置表读取（/api/usage/limits）
+(function loadFreeLimits(){
+  fetch('https://xianbao.love/api/usage/limits')
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j || !j.success || !j.data) return;
+      var d = j.data;
+      var map = { limTarot: d.tarot, limMaya: d.maya, limPsych: d.psych_test, limReading: d.reading };
+      Object.keys(map).forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && map[id] != null) el.textContent = map[id];
+      });
+    })
+    .catch(function(){});
+})();
 
 function startBuy(type) {
   var modal = document.getElementById('paymentModal');
