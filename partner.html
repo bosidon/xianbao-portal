@@ -35,19 +35,8 @@ section h2 { font-size: 24px; font-weight: 700; text-align: center; margin-botto
 section h2 span { color: #c8a65c; }
 .sec-desc { text-align: center; color: #777; font-size: 14px; margin-bottom: 28px; }
 
-/* 收益测算 */
-.calc { background: #101017; }
-.calc-box { background: #16161f; border: 1px solid #24242f; border-radius: 16px; padding: 28px; }
-.calc-row { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
-.calc-row label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #aaa; }
-.calc-row input[type=range] { width: 160px; accent-color: #c8a65c; }
-.calc-row b { color: #c8a65c; font-size: 16px; min-width: 30px; display: inline-block; text-align: right; }
-.calc-out { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.calc-out > div { background: #0d0d12; border: 1px solid #1e1e2a; border-radius: 12px; padding: 16px 8px; text-align: center; }
-.calc-out .num { font-size: 24px; font-weight: 800; color: #f5d485; }
-.calc-out .num.money { color: #6ee7b7; }
-.calc-out .lbl { font-size: 12px; color: #777; margin-top: 4px; }
-.calc-note { text-align: center; color: #555; font-size: 12px; margin-top: 16px; }
+/* 深色区块背景 */
+.dark-sec { background: #101017; }
 
 /* 权益 */
 .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -91,9 +80,6 @@ section h2 span { color: #c8a65c; }
 
 @media (max-width: 640px) {
   .hero h1 { font-size: 26px; }
-  .calc-out { grid-template-columns: repeat(2, 1fr); }
-  .calc-row { gap: 16px; }
-  .calc-row input[type=range] { width: 110px; }
   section h2 { font-size: 20px; }
 }
 </style>
@@ -156,7 +142,7 @@ section h2 span { color: #c8a65c; }
 </section>
 
 <!-- 结算流程 -->
-<section class="calc">
+<section class="dark-sec">
   <div class="wrap">
     <h2>佣金<span>结算流程</span></h2>
     <div class="sec-desc">透明、可追溯，随时查看你的推广数据</div>
