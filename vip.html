@@ -63,12 +63,10 @@ body {
 .btn-buy.secondary { background: transparent; color: #a78bfa; border: 1px solid #7c3aed44; }
 .btn-buy.secondary:hover { background: #7c3aed15; }
 
-/* 体验版卡片 */
-.card.free { border-color: #2a2a3a; background: #12121a; }
-.card.free .name { color: #9ca3af; }
-.card.free .price .num { color: #9ca3af; }
-.card.free .features li { color: #8b8b99; }
-.card.free .lim { color: #c4b5fd; font-weight: 600; }
+/* 加盟版卡片 */
+.card.partner { border-color: #c8a65c66; background: linear-gradient(135deg, #14141e, #1f1a10); }
+.card.partner .name { color: #c8a65c; }
+.card.partner .price .num { color: #c8a65c; }
 
 /* Payment modal */
 .modal-overlay {
@@ -149,19 +147,6 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 
 <!-- Pricing Cards -->
 <section class="pricing" id="pricingCards">
-  <div class="card free">
-    <div class="name">🌱 体验版</div>
-    <div class="desc">免费体验，了解核心功能</div>
-    <div class="price"><span class="currency">¥</span><span class="num">0</span><span class="unit">/永久</span></div>
-    <ul class="features">
-      <li><span class="check">✓</span> 塔罗解读 <b class="lim" id="limTarot">-</b> 次</li>
-      <li><span class="check">✓</span> 玛雅天赋 <b class="lim" id="limMaya">-</b> 次</li>
-      <li><span class="check">✓</span> 心理测评 <b class="lim" id="limPsych">-</b> 次</li>
-      <li><span class="check">✓</span> 心灵阅读 <b class="lim" id="limReading">-</b> 章</li>
-    </ul>
-    <button class="btn-buy secondary" onclick="location.href='/'">免费使用</button>
-  </div>
-
   <div class="card">
     <div class="name">🌸 年卡</div>
     <div class="desc">一年无限畅用，性价比之选</div>
@@ -188,6 +173,19 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
       <li><span class="check">✓</span> 3 年有效（1095 天）</li>
     </ul>
     <button class="btn-buy primary" onclick="startBuy('lifetime')">选择 3 年卡</button>
+  </div>
+
+  <div class="card partner">
+    <div class="name">🤝 加盟版</div>
+    <div class="desc">成为推广伙伴，共享收益</div>
+    <div class="price"><span class="currency">¥</span><span class="num">388</span><span class="unit">/年</span></div>
+    <ul class="features">
+      <li><span class="check">✓</span> 赠 1 年 VIP 会员（价值 ¥128）</li>
+      <li><span class="check">✓</span> 成为推广员（推荐 1 人 +3 天 VIP）</li>
+      <li><span class="check">✓</span> 推广收益抽佣 60%</li>
+      <li><span class="check">✓</span> 自媒体制作系统使用权</li>
+    </ul>
+    <button class="btn-buy primary" onclick="startBuy('partner')">立即加盟</button>
   </div>
 </section>
 
@@ -254,22 +252,6 @@ function checkStatus() {
     });
 }
 
-// 免费额度从配置表读取（/api/usage/limits）
-(function loadFreeLimits(){
-  fetch('https://xianbao.love/api/usage/limits')
-    .then(function(r){ return r.json(); })
-    .then(function(j){
-      if (!j || !j.success || !j.data) return;
-      var d = j.data;
-      var map = { limTarot: d.tarot, limMaya: d.maya, limPsych: d.psych_test, limReading: d.reading };
-      Object.keys(map).forEach(function(id){
-        var el = document.getElementById(id);
-        if (el && map[id] != null) el.textContent = map[id];
-      });
-    })
-    .catch(function(){});
-})();
-
 function startBuy(type) {
   var modal = document.getElementById('paymentModal');
   var title = document.getElementById('modalTitle');
@@ -281,11 +263,16 @@ function startBuy(type) {
     document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
     desc.textContent = '有效期 365 天，无限使用所有功能';
     price.textContent = '¥128';
-  } else {
+  } else if (type === 'lifetime') {
     title.textContent = '3 年卡会员';
     document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
     desc.textContent = '一次付费，畅享 3 年（1095 天）';
     price.textContent = '¥256';
+  } else {
+    title.textContent = '加盟版会员';
+    document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
+    desc.textContent = '赠 1 年 VIP + 推广员资格 + 抽佣 60% + 自媒体系统';
+    price.textContent = '¥388';
   }
 
   modal.classList.add('show');
