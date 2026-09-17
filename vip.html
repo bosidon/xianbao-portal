@@ -97,23 +97,6 @@ body {
 .modal .hint { color: #555; font-size: 13px; }
 .modal .hint strong { color: #888; }
 
-/* Status */
-#vipStatus {
-  max-width: 700px; margin: 0 auto 30px; padding: 0 20px;
-}
-.status-card {
-  background: linear-gradient(135deg, #14141e, #1a1030); border: 1px solid #7c3aed44;
-  border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.status-card.free { border-color: #2a2a3a; background: #14141e; }
-.status-card .badge {
-  font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 20px;
-}
-.status-card .badge.vip { background: #f59e0b22; color: #fbbf24; border: 1px solid #f59e0b44; }
-.status-card .badge.free { background: #1e1e2a; color: #888; border: 1px solid #2a2a3a; }
-.status-card .info { font-size: 14px; color: #b0b0b0; }
-.status-card .info strong { color: #a78bfa; }
-
 footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 
 @media (max-width: 768px) {
@@ -141,9 +124,6 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   <h1>升级 <span>VIP</span> 会员</h1>
   <p>解锁全部工具无限次使用，畅享仙宝心灵成长生态</p>
 </section>
-
-<!-- VIP Status -->
-<div id="vipStatus"></div>
 
 <!-- Pricing Cards -->
 <section class="pricing" id="pricingCards">
@@ -228,31 +208,6 @@ function fmtDate(d) {
   return new Date(d).toLocaleDateString('zh-CN', { year:'numeric', month:'long', day:'numeric' });
 }
 
-// Check VIP status
-function checkStatus() {
-  var container = document.getElementById('vipStatus');
-  fetch(AUTH_API + '/api/vip/status', { credentials: 'include' })
-    .then(function(r) { return r.json(); })
-    .then(function(json) {
-      if (!json.success || !json.data) {
-        container.innerHTML = '<div class="status-card free"><span>请先登录</span><span class="badge free">未登录</span></div>';
-        return;
-      }
-      var d = json.data;
-      var planLabel = d.isVip ? 'VIP' : '免费用户';
-      var badgeClass = d.isVip ? 'vip' : 'free';
-      var extra = d.isVip ? '<strong>' + d.expiryLabel + '</strong>' : '当前为免费版，升级解锁所有工具';
-      container.innerHTML =
-        '<div class="status-card ' + (d.isVip ? 'vip' : 'free') + '">' +
-          '<div class="info">' + extra + '</div>' +
-          '<span class="badge ' + badgeClass + '">' + planLabel + '</span>' +
-        '</div>';
-    })
-    .catch(function() {
-      container.innerHTML = '';
-    });
-}
-
 function startBuy(type) {
   var modal = document.getElementById('paymentModal');
   var title = document.getElementById('modalTitle');
@@ -284,7 +239,6 @@ function closeModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(checkStatus, 1500);
 });
 </script>
 </body>
