@@ -63,7 +63,7 @@ body {
 .btn-buy.secondary { background: transparent; color: #a78bfa; border: 1px solid #7c3aed44; }
 .btn-buy.secondary:hover { background: #7c3aed15; }
 
-/* 加盟版卡片 */
+/* 合伙人卡片 */
 .card.partner { border-color: #c8a65c66; background: linear-gradient(135deg, #14141e, #1f1a10); }
 .card.partner .name { color: #c8a65c; }
 .card.partner .price .num { color: #c8a65c; }
@@ -176,16 +176,16 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   </div>
 
   <div class="card partner">
-    <div class="name">🤝 加盟版</div>
+    <div class="name">🤝 合伙人</div>
     <div class="desc">成为推广伙伴，共享收益</div>
-    <div class="price"><span class="currency">¥</span><span class="num">388</span><span class="unit">/年</span></div>
+    <div class="price"><span class="currency">¥</span><span class="num">388</span><span class="unit">/长期有效</span></div>
     <ul class="features">
-      <li><span class="check">✓</span> 赠 1 年 VIP 会员（价值 ¥128）</li>
+      <li><span class="check">✓</span> VIP 会员（长期有效）</li>
       <li><span class="check">✓</span> 成为推广员（推荐 1 人 +3 天 VIP）</li>
       <li><span class="check">✓</span> 推广收益抽佣 60%</li>
       <li><span class="check">✓</span> 自媒体制作系统使用权</li>
     </ul>
-    <button class="btn-buy primary" onclick="startBuy('partner')">立即加盟</button>
+    <button class="btn-buy primary" onclick="startBuy('partner')">立即加入</button>
   </div>
 </section>
 
@@ -269,9 +269,9 @@ function startBuy(type) {
     desc.textContent = '一次付费，畅享 3 年（1095 天）';
     price.textContent = '¥256';
   } else {
-    title.textContent = '加盟版会员';
+    title.textContent = '合伙人';
     document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
-    desc.textContent = '赠 1 年 VIP + 推广员资格 + 抽佣 60% + 自媒体系统';
+    desc.textContent = 'VIP 会员（长期有效）+ 推广员资格 + 抽佣 60% + 自媒体系统';
     price.textContent = '¥388';
   }
 
