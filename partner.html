@@ -108,32 +108,11 @@ section h2 span { color: #c8a65c; }
 
 <!-- Hero -->
 <section class="hero">
-  <h1>成为 <span>仙宝合伙人</span></h1>
-  <p>加入仙宝心灵成长推广体系，获得 1 年 VIP 会员权益、推广抽佣 60%，以及自媒体制作系统使用权</p>
+  <h1>仙宝<span>合伙人</span></h1>
+  <p>¥388 为<strong style="color:#c8a65c">自媒体创作系统算力费用</strong>，开通后即获系统使用权，并附赠 1 年 VIP 会员权益与推广抽佣 60%</p>
   <div class="hero-price">¥388<small>/年</small></div>
-  <div class="hero-sub">一次加入，推广越多，权益越久</div>
+  <div class="hero-sub">含自媒体创作系统算力 · 赠 1 年 VIP · 推广抽佣 60%</div>
   <button class="cta" onclick="startBuy()">立即加入</button>
-</section>
-
-<!-- 收益测算 -->
-<section class="calc">
-  <div class="wrap">
-    <h2>收益<span>测算</span></h2>
-    <div class="sec-desc">拖动滑块，看看你每月能获得多少</div>
-    <div class="calc-box">
-      <div class="calc-row">
-        <label>每月推荐注册 <input id="calcN" type="range" min="1" max="50" value="5"><b id="calcNV">5</b> 人</label>
-        <label>付费转化率 <input id="calcR" type="range" min="5" max="60" step="5" value="20"><b id="calcRV">20</b>%</label>
-      </div>
-      <div class="calc-out">
-        <div><div class="num" id="outVipM">15</div><div class="lbl">VIP 天数 / 月</div></div>
-        <div><div class="num money" id="outCommM">¥76.80</div><div class="lbl">佣金 / 月</div></div>
-        <div><div class="num" id="outVipY">180</div><div class="lbl">VIP 天数 / 年</div></div>
-        <div><div class="num money" id="outCommY">¥921.60</div><div class="lbl">佣金 / 年</div></div>
-      </div>
-      <p class="calc-note">佣金按年卡 ¥128 × 60% = ¥76.80 / 单计算（3 年卡为 ¥153.60 / 单，实际收益更高）</p>
-    </div>
-  </div>
 </section>
 
 <!-- 权益详解 -->
@@ -143,9 +122,14 @@ section h2 span { color: #c8a65c; }
     <div class="sec-desc">¥388 加入，获得以下全部权益</div>
     <div class="benefits-grid">
       <div class="benefit">
+        <div class="ico">⚡</div>
+        <div class="t">自媒体创作系统算力（¥388/年）</div>
+        <div class="d">开通仙宝自媒体创作系统（<em>media.xianbao.love</em>），获得<em>一年算力额度</em>，用于 AI 生成文案、图文等推广内容，助力内容创作</div>
+      </div>
+      <div class="benefit">
         <div class="ico">👑</div>
         <div class="t">赠 1 年 VIP 会员</div>
-        <div class="d">加入即获 <em>365 天 VIP 权益</em>，塔罗解读、玛雅天赋、心理测评、心灵阅读全部无限次使用</div>
+        <div class="d">随算力套餐附赠 <em>365 天 VIP 权益</em>，塔罗解读、玛雅天赋、心理测评、心灵阅读全部无限次使用</div>
       </div>
       <div class="benefit">
         <div class="ico">🎁</div>
@@ -157,11 +141,6 @@ section h2 span { color: #c8a65c; }
         <div class="t">推广收益抽佣 60%</div>
         <div class="d">好友购买年卡/3 年卡，你获得 <em>订单金额 60%</em> 的佣金（年卡 ¥76.80 / 3 年卡 ¥153.60），<em>每次付费与续费均计</em></div>
       </div>
-      <div class="benefit">
-        <div class="ico">🎬</div>
-        <div class="t">自媒体制作系统使用权</div>
-        <div class="d">免费使用仙宝自媒体内容制作系统（<em>media.xianbao.love</em>），助力你的推广内容创作</div>
-      </div>
       <div class="benefit limit">
         <div class="ico">⏳</div>
         <div class="t">有效期说明</div>
@@ -169,8 +148,8 @@ section h2 span { color: #c8a65c; }
       </div>
       <div class="benefit">
         <div class="ico">🚫</div>
-        <div class="t">加盟费不抽佣</div>
-        <div class="d">合伙人费用 ¥388 为平台加盟费，<em>不计入推广抽佣</em>（避免层层抽佣）</div>
+        <div class="t">算力费用不抽佣</div>
+        <div class="d">¥388 为自媒体创作系统算力费用，<em>不计入推广抽佣</em>（避免层层抽佣）</div>
       </div>
     </div>
   </div>
@@ -196,11 +175,12 @@ section h2 span { color: #c8a65c; }
     <h2>常见<span>问题</span></h2>
     <div class="sec-desc">点击展开查看</div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">抽佣怎么计算？</div><div class="faq-a">年卡 ¥128 × 60% = <b>¥76.80</b>；3 年卡 ¥256 × 60% = <b>¥153.60</b>。好友<b>每次付费与续费</b>都计佣，可累计。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">合伙人加盟费会抽佣吗？</div><div class="faq-a">不会。¥388 为平台加盟费，<b>不计入推广抽佣</b>，避免多层抽佣导致体系失衡。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¥388 是什么费用？</div><div class="faq-a">¥388 是<b>自媒体创作系统（media.xianbao.love）的算力费用</b>，按年计费。开通后获得一年算力额度，用于 AI 生成推广文案、图文等内容，并附赠 1 年 VIP 会员权益。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">算力费用会抽佣吗？</div><div class="faq-a">不会。¥388 为算力费用，<b>不计入推广抽佣</b>，避免多层抽佣导致体系失衡。</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">推荐奖励怎么发放？</div><div class="faq-a">好友通过你的专属链接注册成功，<b>你和好友各得 3 天 VIP</b>，自动到账；推荐多人可无限累加，VIP 有效期同步延长。</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">合伙人资格会过期吗？</div><div class="faq-a">VIP 有效期 1 年。只要<b>持续推荐新人</b>，VIP 天数不断累加，资格可<b>无限延期</b>；若停止推广，VIP 到期后合伙人资格同步终止。</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">佣金如何提取？</div><div class="faq-a">在「我的推广」查看待结算金额，平台确认转账后标记为已结算。<b>微信转账</b>方式，具体可联系客服。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">自媒体制作系统怎么用？</div><div class="faq-a">加入合伙人后可访问 <b>media.xianbao.love</b>，用于生成推广内容（文案、图文等），助力你的推广效果。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">自媒体创作系统怎么用？</div><div class="faq-a">开通后访问 <b>media.xianbao.love</b>，使用一年算力额度生成推广内容（AI 文案、图文等）。算力消耗完可续费。</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">如何加入？</div><div class="faq-a">点击页面「立即加入」按钮，扫描微信二维码转账 ¥388，客服确认后立即开通（VIP + 推广员资格）。</div></div>
   </div>
 </section>
@@ -215,7 +195,7 @@ section h2 span { color: #c8a65c; }
 <div class="modal" id="payModal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
     <h3>合伙人</h3>
-    <div class="d">赠 1 年 VIP + 双方各赠 3 天/人（可累加）+ 抽佣 60% + 自媒体系统</div>
+    <div class="d">自媒体创作系统算力（1 年）· 赠 1 年 VIP · 抽佣 60%</div>
     <img id="qrImage" src="/images/wechat-qr.jpg" alt="微信二维码">
     <div class="tip">添加微信 确认档位后转账开通</div>
     <div class="contact">微信：<b>19122895147</b>　QQ：<b>10212643</b></div>
@@ -229,24 +209,6 @@ function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 function startBuy() { document.getElementById('payModal').classList.add('show'); }
 function closeModal() { document.getElementById('payModal').classList.remove('show'); }
 
-// ===== 收益测算 =====
-var COMM_PER_ORDER = 76.8;   // 年卡 128 × 60%
-function calc() {
-  var n = parseInt(document.getElementById('calcN').value, 10);
-  var r = parseInt(document.getElementById('calcR').value, 10);
-  document.getElementById('calcNV').textContent = n;
-  document.getElementById('calcRV').textContent = r;
-  var pays = n * r / 100;                       // 每月付费人数
-  var vipM = n * 3;                             // 每月获赠 VIP 天数
-  var commM = pays * COMM_PER_ORDER;            // 每月佣金
-  document.getElementById('outVipM').textContent = Math.round(vipM);
-  document.getElementById('outCommM').textContent = '¥' + commM.toFixed(2);
-  document.getElementById('outVipY').textContent = Math.round(vipM * 12);
-  document.getElementById('outCommY').textContent = '¥' + (commM * 12).toFixed(2);
-}
-document.getElementById('calcN').addEventListener('input', calc);
-document.getElementById('calcR').addEventListener('input', calc);
-calc();
 </script>
 </body>
 </html>
