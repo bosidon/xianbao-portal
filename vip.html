@@ -139,7 +139,7 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 
 <div id="xianbao-topbar" data-active="portal"></div>
 <script src="https://xianbao.love/assets/xianbao/xianbao-topbar.js?v=20260829"></script>
-<script src="https://xianbao.love/assets/xianbao/auth-widget.js?v=20260829"></script>
+<script src="https://xianbao.love/assets/xianbao/auth-widget.js?v=20260917"></script>
 
 <div class="topbar-spacer"></div>
 
@@ -169,17 +169,17 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
   </div>
 
   <div class="card popular">
-    <div class="name">👑 不限时</div>
-    <div class="desc">一次付费，永久使用</div>
-    <div class="price"><span class="currency">¥</span><span class="num">256</span><span class="unit">/永久</span></div>
+    <div class="name">👑 3 年卡</div>
+    <div class="desc">一次付费，畅享 3 年</div>
+    <div class="price"><span class="currency">¥</span><span class="num">256</span><span class="unit">/3年</span></div>
     <ul class="features">
       <li><span class="check">✓</span> 塔罗解读 无限次</li>
       <li><span class="check">✓</span> 玛雅天赋 无限次</li>
       <li><span class="check">✓</span> 心理测评 无限次</li>
       <li><span class="check">✓</span> 心灵阅读 无限本书精读</li>
-      <li><span class="check">✓</span> 永久有效，永不过期</li>
+      <li><span class="check">✓</span> 3 年有效（1095 天）</li>
     </ul>
-    <button class="btn-buy primary" onclick="startBuy('lifetime')">选择不限时</button>
+    <button class="btn-buy primary" onclick="startBuy('lifetime')">选择 3 年卡</button>
   </div>
 </section>
 
@@ -187,12 +187,12 @@ footer { text-align: center; padding: 30px; color: #444; font-size: 13px; }
 <section class="feature-compare">
   <h2>权益对比</h2>
   <table>
-    <tr><th></th><th>免费版</th><th>VIP 年卡</th><th>VIP 不限时</th></tr>
+    <tr><th></th><th>免费版</th><th>VIP 年卡</th><th>VIP 3 年卡</th></tr>
     <tr><td>塔罗解读</td><td class="no">20 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>玛雅天赋</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>心理测评</td><td class="no">3 次</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
     <tr><td>心灵阅读</td><td class="no">3 本精读</td><td class="yes">∞ 无限</td><td class="yes">∞ 无限</td></tr>
-    <tr><td>有效期</td><td class="no">永久</td><td>365 天</td><td class="yes">永久</td></tr>
+    <tr><td>有效期</td><td class="no">—</td><td>365 天</td><td class="yes">1095 天（3 年）</td></tr>
     <tr><td><strong>价格</strong></td><td class="no"><strong>免费</strong></td><td><strong style="color:#a78bfa">¥128</strong></td><td><strong style="color:#a78bfa">¥256</strong></td></tr>
   </table>
 </section>
@@ -270,9 +270,9 @@ function startBuy(type) {
     desc.textContent = '有效期 365 天，无限使用所有功能';
     price.textContent = '¥128';
   } else {
-    title.textContent = '不限时会员';
+    title.textContent = '3 年卡会员';
     document.getElementById('qrImage').src = '/images/wechat-qr.jpg';
-    desc.textContent = '一次付费，永久使用，永不过期';
+    desc.textContent = '一次付费，畅享 3 年（1095 天）';
     price.textContent = '¥256';
   }
 
